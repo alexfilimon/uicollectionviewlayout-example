@@ -6,13 +6,6 @@ class WheelLayoutController: UIViewController, UICollectionViewDataSource {
 
     private var collectionView: UICollectionView!
 
-    private var leftAngleLineView = UIView()
-    private var rightAngleLineView = UIView()
-
-    private var wheelLayout: WheelLayout {
-        collectionView.collectionViewLayout as! WheelLayout
-    }
-
     // MARK: - Life cycle
 
     override func viewDidLoad() {
@@ -48,15 +41,10 @@ class WheelLayoutController: UIViewController, UICollectionViewDataSource {
             ]
         )
         collectionView.layer.masksToBounds = false
-        collectionView.layer.borderColor = UIColor.red.cgColor
-        collectionView.layer.borderWidth = 1
+//        collectionView.layer.borderColor = UIColor.red.cgColor
+//        collectionView.layer.borderWidth = 1
 
         collectionView.register(WheelCollectionCell.self, forCellWithReuseIdentifier: "cell")
-
-        view.addSubview(leftAngleLineView)
-        leftAngleLineView.backgroundColor = .systemGreen
-        view.addSubview(rightAngleLineView)
-        rightAngleLineView.backgroundColor = .systemGreen
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -64,27 +52,8 @@ class WheelLayoutController: UIViewController, UICollectionViewDataSource {
         collectionView.collectionViewLayout.invalidateLayout()
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        leftAngleLineView.center = .init(
-            x: collectionView.frame.midX,
-            y: collectionView.frame.midY + wheelLayout.radius
-        )
-        leftAngleLineView.bounds = .init(
-            origin: .zero,
-            size: .init(width: 1, height: 10000)
-        )
-
-        rightAngleLineView.center = leftAngleLineView.center
-        rightAngleLineView.bounds = leftAngleLineView.bounds
-
-        leftAngleLineView.transform = .init(
-            rotationAngle: -wheelLayout.angleForSkip
-        )
-        rightAngleLineView.transform = .init(
-            rotationAngle: wheelLayout.angleForSkip
-        )
+    private var wheelLayout: WheelLayout {
+        collectionView.collectionViewLayout as! WheelLayout
     }
 
     // MARK: - UICollectionViewDataSource
