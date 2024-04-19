@@ -2,6 +2,8 @@
 
 ![Example](resources/wheel_layout_example.gif)
 
+[Презентация](resources/UICollectionViewLayout%20Podlodka%202024.pdf)
+
 ## Что находится в проекте
 
 - пример работы с `UICompositionalLayout`
@@ -35,6 +37,9 @@
 - https://github.com/amirdew/CollectionViewPagingLayout
 - https://github.com/filletofish/CardsLayout
 - https://github.com/awdigital/AWCollectionViewSlidingDoors
+- https://github.com/shoheiyokoyama/Gemini
+- https://github.com/riteshhgupta/TagCellLayout
+- https://github.com/alexfilimon/PluginableFlowLayout
 
 #### Гайды
 - https://www.vadimbulavin.com/sticky-grid-collection-view/
